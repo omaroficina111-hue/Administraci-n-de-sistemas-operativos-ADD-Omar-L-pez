@@ -1,0 +1,1 @@
+# Administraci-n-de-sistemas-operativos-ADD-Omar-L-pez
