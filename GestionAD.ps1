@@ -67,18 +67,16 @@ do {
         # ----------------------------------------------------------------------
         # OPCIÓN 3: CREAR UN NUEVO GRUPO DE SEGURIDAD
         # ----------------------------------------------------------------------
-        "3" {
-            Write-Host "`n--- CREAR NUEVO GRUPO ---"
-            
-            # Solicitamos el nombre para el nuevo grupo
-            $grupo = Read-Host "Introduce el nombre del nuevo grupo"
-            
-            # New-ADGroup crea un grupo global de seguridad en Active Directory
-            New-ADGroup -Name $grupo -GroupScope Global -GroupCategory Security
-            
-            # Confirmación de creación
-            Write-Host "¡Éxito! El grupo '$grupo' ha sido creado correctamente."
-        }
+  # ----------------------------------------------------------------------
+       "3" {
+    Write-Host "`n--- CREAR NUEVO GRUPO ---"
+    $grupo = Read-Host "Nombre del grupo"
+    $scope = Read-Host "Ámbito (Global / DomainLocal / Universal) [Global]"
+    $category = Read-Host "Categoría (Security / Distribution) [Security]"
+
+    New-ADGroup -Name $grupo -GroupScope $(if ($scope) { $scope } else { "Global" }) -GroupCategory $(if ($category) { $category } else { "Security" })
+    Write-Host "¡Éxito! Grupo '$grupo' creado."
+}
 
         # ----------------------------------------------------------------------
         # OPCIÓN 4: CREAR UN NUEVO USUARIO Y ASIGNARLO A UN GRUPO
