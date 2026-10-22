@@ -3,7 +3,7 @@
 # Cuenta los registros del mes actual de un nivel de severidad y los guarda en un archivo.
 # Uso: ./omarlogs.sh <emergente|alerta|crítico|error|advertencia|noticia|información|depuración>
  
-# 1. Validar que se recibe exactamente un parámetro
+# 1. Validar que se recibe exactamente un parámetro.
 if [ $# -ne 1 ]; then
     echo "Error: se necesita un único parámetro."
     echo "Uso: $0 <emergente|alerta|crítico|error|advertencia|noticia|información|depuración>"
